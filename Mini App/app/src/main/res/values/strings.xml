@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Password Manager</string>
+    <string name="title_home">Passwords</string>
+    <string name="title_dashboard">Manager</string>
+    <string name="title_notifications">Settings</string>
+</resources>
