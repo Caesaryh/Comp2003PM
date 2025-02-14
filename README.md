@@ -50,7 +50,7 @@ This repository contains the source code and associated files for the **Password
 ### Steps:
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/tylerbennett23/Comp2003PM
+   git clone https://github.com/Caesaryh/Comp2003PM
    cd password-management-app
    ```
 2. **Install Dependencies**:
