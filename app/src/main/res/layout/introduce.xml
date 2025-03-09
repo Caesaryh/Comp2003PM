@@ -1,0 +1,242 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent" android:layout_height="wrap_content" >
+	<!-- 
+	/*
+	 *	This content is generated from the API File Info.
+	 *	(Alt+Shift+Ctrl+I).
+	 *
+	 *	@desc 		
+	 *	@file 		introduce
+	 *	@date 		Tuesday 04th of March 2025 02:22:17 AM
+	 *	@title 		Page 5
+	 *	@author 	
+	 *	@keywords 	
+	 *	@generator 	Export Kit v1.3.figma
+	 *
+	 */
+	-->
+
+
+	<ScrollView android:id="@+id/introduce" 
+		android:layout_width="wrap_content" 
+		android:layout_height="match_parent" >
+
+		<RelativeLayout android:id="@+id/content_container" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" >
+
+
+			<View   android:id="@+id/_bg__introduce"
+				android:background="@drawable/_bg__manage_screen_2__shape"
+				 android:layout_marginStart="-10dp"
+				android:layout_marginTop="-10dp"
+				android:layout_width="433dp"
+				android:layout_height="1040dp" />
+
+			<ImageView android:id="@+id/rectangle_68"
+				android:src="@drawable/rectangle_68"
+				android:contentDescription="rectangle_68"
+				 android:layout_marginStart="-10dp"
+				android:layout_marginTop="-10dp"
+				android:layout_width="433dp"
+				android:layout_height="1041dp" />
+
+			<View   android:id="@+id/rectangle_71"
+				android:background="@drawable/rectangle_71_shape"
+				 android:alpha="0.15999999642372"
+				 android:layout_marginStart="0dp"
+				android:layout_marginTop="0dp"
+				android:layout_width="412dp"
+				android:layout_height="55dp" />
+
+			<ImageView android:id="@+id/image_36"
+				android:src="@drawable/image_36"
+				android:contentDescription="image_36"
+				 android:layout_marginStart="0dp"
+				android:layout_marginTop="-29dp"
+				android:layout_width="40.25dp"
+				android:layout_height="109dp" />
+
+			<View   android:id="@+id/rectangle_70"
+				android:background="@drawable/rectangle_70_shape"
+				 android:alpha="0.15999999642372"
+				 android:layout_marginStart="0dp"
+				android:layout_marginTop="852dp"
+				android:layout_width="413dp"
+				android:layout_height="51dp" />
+
+			<TextView
+				android:id="@+id/password_manager"
+				android:textSize="24sp"
+				android:layout_marginLeft="110dp"
+				android:layout_marginTop="10dp"
+				android:layout_width="296dp"
+				android:layout_height="58dp"
+				android:text="@string/password_manager_string"
+				android:textColor="#FFFFFF" />
+
+			<TextView android:id="@+id/original_intention_of_development_many_small_partners_should_have_the_experience_of_stolen_numbers__first_of_all__some_hackers_have_to_say_that_they_are_very_powerful__and_they_can_easily_steal_your_account__but_there_are_also_their_own_slowly_too_simple__this_password_is_called_weak_password__such_as_123456_this_password__well__this_kind_of_password_is_really_easy_to_remember__i_don_t_know_if_you_know_this_password_is_the_first_in_many_demolition_dictionaries__which_means_that_people_just_try_to_know_your_password__and_it_was_stolen__we_live_in_this_transparent_world__although_there_is_no_privacy__but_still_protect_yourself__don_t_use_that_weak_password_"
+
+				android:textSize="20sp"
+				android:layout_marginLeft="60dp"
+
+				android:layout_marginTop="200dp"
+				android:layout_width="300dp"
+				android:layout_height="600dp"
+				android:text="Original intention of development
+
+
+
+
+
+
+
+
+Many small partners should have the experience of stolen numbers.
+First of all, some hackers have to say that they are very powerful,
+and they can easily steal your account.
+But there are also their own slowly too simple,
+this password is called weak password,
+such as 123456 this password.
+ Well, this kind of password is really easy to remember,
+I don't know if you know this password is the first in many demolition dictionaries,
+ which means that people just try to know your password. And it was stolen.
+We live in this transparent world,
+although there is no privacy, but still protect yourself, don't use that weak password."
+				android:textColor="#FFFFFF"
+				/>
+
+			<View   android:id="@+id/rectangle_77"
+				android:background="@drawable/rectangle_77_shape"
+				 android:alpha="0.15999999642372"
+				 android:layout_marginStart="30.63dp"
+				android:layout_marginTop="858dp"
+				android:layout_width="33.25dp"
+				android:layout_height="41dp" />
+
+			<ImageView android:id="@+id/image_39"
+				android:src="@drawable/image_39"
+				android:contentDescription="image_39"
+				 android:layout_marginStart="105dp"
+				android:layout_marginTop="860dp"
+				android:layout_width="29.75dp"
+				android:layout_height="36dp" />
+
+			<View   android:id="@+id/rectangle_81"
+				android:background="@drawable/rectangle_81_shape"
+				 android:alpha="0.15999999642372"
+				 android:layout_marginStart="321.13dp"
+				android:layout_marginTop="858dp"
+				android:layout_width="33.25dp"
+				android:layout_height="41dp" />
+
+			<ImageView android:id="@+id/_image_38"
+				android:src="@drawable/_image_38"
+				android:contentDescription="_image_38"
+				 android:layout_marginStart="32.38dp"
+				android:layout_marginTop="860dp"
+				android:layout_width="29.75dp"
+				android:layout_height="36dp" />
+
+			<ImageView android:id="@+id/image_40"
+				android:src="@drawable/image_40"
+				android:contentDescription="image_40"
+				 android:layout_marginStart="177.63dp"
+				android:layout_marginTop="860dp"
+				android:layout_width="29.75dp"
+				android:layout_height="36dp" />
+
+			<ImageView android:id="@+id/_image_42"
+				android:src="@drawable/_image_42"
+				android:contentDescription="_image_42"
+				 android:layout_marginStart="322.88dp"
+				android:layout_marginTop="860dp"
+				android:layout_width="29.75dp"
+				android:layout_height="36dp" />
+
+			<ImageView android:id="@+id/image_41"
+				android:src="@drawable/image_41"
+				android:contentDescription="image_41"
+				 android:layout_marginStart="250.25dp"
+				android:layout_marginTop="860dp"
+				android:layout_width="29.75dp"
+				android:layout_height="36dp" />
+
+
+
+			<View   android:id="@+id/rectangle_78"
+				android:background="@drawable/rectangle_78_shape"
+				 android:alpha="0.15999999642372"
+				 android:layout_marginStart="103.25dp"
+				android:layout_marginTop="858dp"
+				android:layout_width="33.25dp"
+				android:layout_height="41dp" />
+
+			<View   android:id="@+id/_rectangle_111"
+				android:background="@drawable/_rectangle_111_shape"
+				 android:alpha="0.15999999642372"
+				 android:layout_marginStart="175.88dp"
+				android:layout_marginTop="858dp"
+				android:layout_width="33.25dp"
+				android:layout_height="41dp" />
+
+
+			<RelativeLayout android:id="@+id/lock_____"
+				android:layout_marginTop="675dp"
+				android:layout_marginStart="109.38dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				>
+
+
+
+
+
+				<ImageView android:id="@+id/vector_ek2"
+					android:src="@drawable/vector_ek2"
+					android:contentDescription="vector_ek2"
+					 android:layout_marginStart="10.5dp"
+					android:layout_marginTop="15dp"
+					android:layout_width="0dp"
+					android:layout_height="3dp" />
+
+			</RelativeLayout>
+
+			<ImageView android:id="@+id/rectangle_110"
+				android:src="@drawable/rectangle_110"
+				android:contentDescription="rectangle_110"
+				 android:layout_marginStart="248.5dp"
+				android:layout_marginTop="858dp"
+				android:layout_width="33.25dp"
+				android:layout_height="41dp" />
+
+
+
+
+			<RelativeLayout android:id="@+id/arrow_left______"
+				android:layout_marginTop="91dp"
+				android:layout_marginStart="9.63dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				>
+
+
+
+				<ImageView android:id="@+id/vector_ek4"
+					android:src="@drawable/vector_ek4"
+					android:contentDescription="vector_ek4"
+					 android:layout_marginStart="2.54dp"
+					android:layout_marginTop="6dp"
+					android:layout_width="5.25dp"
+					android:layout_height="12dp" />
+
+
+
+
+
+			</RelativeLayout>
+
+		</RelativeLayout>
+
+	</ScrollView>
+</HorizontalScrollView>

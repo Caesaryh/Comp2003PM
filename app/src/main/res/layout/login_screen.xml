@@ -1,0 +1,174 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent" android:layout_height="wrap_content" >
+	<!-- 
+	/*
+	 *	This content is generated from the API File Info.
+	 *	(Alt+Shift+Ctrl+I).
+	 *
+	 *	@desc 		
+	 *	@file 		login_screen
+	 *	@date 		Sunday 02nd of March 2025 10:06:03 PM
+	 *	@title 		Page 5
+	 *	@author 	
+	 *	@keywords 	
+	 *	@generator 	Export Kit v1.3.figma
+	 *
+	 */
+	-->
+	<ScrollView android:id="@+id/login_screen" 
+		android:layout_width="wrap_content" 
+		android:layout_height="match_parent" >
+
+		<RelativeLayout android:id="@+id/content_container" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" >
+
+			<View   android:id="@+id/_bg__login_screen"
+				android:background="@drawable/_bg__login_screen_shape"
+				 android:layout_marginStart="0dp"
+				android:layout_marginTop="0dp"
+				android:layout_width="412dp"
+				android:layout_height="800dp" />
+
+			<View   android:id="@+id/rectangle_1"
+				android:background="@drawable/rectangle_1_shape"
+				 android:layout_marginStart="0dp"
+				android:layout_marginTop="187dp"
+				android:layout_width="413dp"
+				android:layout_height="545dp" />
+
+			<ImageView android:id="@+id/image_2"
+				android:src="@drawable/image_2"
+				android:contentDescription="image_2"
+				 android:layout_marginStart="0dp"
+				android:layout_marginTop="55dp"
+				android:layout_width="82.25dp"
+				android:layout_height="85dp" />
+
+			<TextView android:id="@+id/password_manager"
+
+				android:textSize="32sp"
+				android:textColor="@color/password_manager_color"
+				android:layout_marginLeft="88.13dp"
+				android:layout_marginTop="79dp"
+				android:layout_width="785.13dp"
+				android:layout_height="58dp"
+				android:text="@string/password_manager_string"
+				 />
+
+			<View   android:id="@+id/_rectangle_5"
+				android:background="@drawable/_rectangle_5_shape"
+				 android:layout_marginStart="220dp"
+				android:layout_marginTop="187dp"
+				android:layout_width="192.5dp"
+				android:layout_height="93dp" />
+
+			<TextView android:id="@+id/register"
+
+				android:textSize="32sp"
+				android:textColor="@color/password_manager_color"
+				android:layout_marginLeft="265dp"
+				android:layout_marginTop="214dp"
+				android:layout_width="295.13dp"
+				android:layout_height="78dp"
+				android:text="@string/register_string"
+				 />
+
+			<TextView android:id="@+id/login"
+
+				android:textSize="32sp"
+				android:textColor="@color/password_manager_color"
+				android:layout_marginLeft="80dp"
+				android:layout_marginTop="217dp"
+				android:layout_width="198.88dp"
+				android:layout_height="78dp"
+				android:text="@string/login_string"
+				 />
+
+			<View   android:id="@+id/rectangle_6"
+				android:background="@drawable/rectangle_6_shape"
+				 android:layout_marginStart="18.38dp"
+				android:layout_marginTop="318dp"
+				android:layout_width="354.38dp"
+				android:layout_height="64dp" />
+
+			<View   android:id="@+id/rectangle_7"
+				android:background="@drawable/rectangle_7_shape"
+				 android:layout_marginStart="18.38dp"
+				android:layout_marginTop="414dp"
+				android:layout_width="354.38dp"
+				android:layout_height="64dp" />
+
+			<TextView android:id="@+id/please_enter_the_account_number"
+
+				android:textSize="20sp"
+				android:textColor="@color/please_enter_the_account_number_color"
+				android:layout_marginLeft="38.5dp"
+				android:layout_marginTop="333dp"
+				android:layout_width="718dp"
+				android:layout_height="49dp"
+				android:text="@string/please_enter_the_account_number_string"
+				 />
+
+			<TextView android:id="@+id/please_enter_the_password"
+
+				android:textSize="20sp"
+				android:textColor="@color/please_enter_the_account_number_color"
+				android:layout_marginLeft="38.5dp"
+				android:layout_marginTop="430dp"
+				android:layout_width="581.5dp"
+				android:layout_height="47dp"
+				android:text="@string/please_enter_the_password_string"
+				 />
+
+			<View   android:id="@+id/_rectangle_8"
+				android:background="@drawable/_rectangle_8_shape"
+				 android:alpha="0.20000000298023"
+				 android:layout_marginStart="18.38dp"
+				android:layout_marginTop="543dp"
+				android:layout_width="354.38dp"
+				android:layout_height="85dp" />
+
+			<TextView android:id="@+id/login_ek1"
+
+				android:textSize="32sp"
+				android:textColor="@color/password_manager_color"
+				android:layout_marginLeft="158.38dp"
+				android:layout_marginTop="564dp"
+				android:layout_width="198dp"
+				android:layout_height="79dp"
+				android:text="@string/login_ek1_string"
+				 />
+
+
+			<RelativeLayout android:id="@+id/component_4"
+				android:layout_marginTop="681dp"
+				android:layout_marginStart="22.75dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				>
+
+				<View   android:id="@+id/__"
+					android:background="@drawable/___shape"
+					 android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp"
+					android:layout_width="32.38dp"
+					android:layout_height="38dp" />
+
+			</RelativeLayout>
+
+			<TextView android:id="@+id/remember_the_password"
+
+				android:textSize="24sp"
+				android:textColor="@color/password_manager_color"
+				android:layout_marginLeft="67.38dp"
+				android:layout_marginTop="681dp"
+				android:layout_width="639.75dp"
+				android:layout_height="60dp"
+				android:text="@string/remember_the_password_string"
+				 />
+
+		</RelativeLayout>
+
+	</ScrollView>
+</HorizontalScrollView>
