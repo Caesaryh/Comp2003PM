@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#7C7E7E"
+        android:gravity="center"
+        android:text="Password Manager"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:fillColor=
+            "#000000"
+        android:fillAlpha=
+            "0.77"
+        android:fillType=
+            "nonZero">
+
+        <TextView
+            android:id="@+id/some_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left|top"
+            android:lineSpacingExtra="0px"
+            android:text="@string/intro"
+            android:textAppearance="@style/intro"
+            android:textFontWeight="400" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#000000"
+        android:orientation="horizontal"
+        android:padding="4dp">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#CCCCCC"
+            android:layout_margin="2dp"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#CCCCCC"
+            android:layout_margin="2dp"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#CCCCCC"
+            android:layout_margin="2dp"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#CCCCCC"
+            android:layout_margin="2dp"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#CCCCCC"
+            android:layout_margin="2dp"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:background="#808080"/>
+</LinearLayout>

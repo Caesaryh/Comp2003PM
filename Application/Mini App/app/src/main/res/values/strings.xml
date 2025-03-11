@@ -3,4 +3,9 @@
     <string name="title_home">Passwords</string>
     <string name="title_dashboard">Manager</string>
     <string name="title_notifications">Settings</string>
+    <string name=
+        "intro">
+Original intention of development\n\n\n\nMany small partners should have the experience of stolen numbers. \nFirst of all, some hackers have to say that they are very powerful, \nand they can easily steal your account. \nBut there are also their own slowly too simple, \nthis password is called weak password, \nsuch as 123456 this password.\n Well, this kind of password is really easy to remember, \nI don't know if you know this password is the first in many demolition dictionaries,\n which means that people just try to know your password. And it was stolen. \nWe live in this transparent world, \nalthough there is no privacy, but still protect yourself, don't use that weak password.
+</string>
 </resources>
+
