@@ -19,7 +19,7 @@ import com.example.pmanager.data.models.User
         PasswordInfo::class,
         User::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 public abstract class AppDatabase : RoomDatabase() {

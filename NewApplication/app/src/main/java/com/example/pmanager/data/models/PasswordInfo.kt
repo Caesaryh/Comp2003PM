@@ -5,9 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "password_info")
 data class PasswordInfo(
-    @PrimaryKey val id : Int,
-
-    val account : String?,
-    val password : String?,
-    val commits : String?
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val account: String?,
+    val password: String?,
+    val commits: String?,
+    val createdAt: Long = System.currentTimeMillis()
 )

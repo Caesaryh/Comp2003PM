@@ -27,4 +27,10 @@ public interface PasswordInfoDao {
 
     @Query("SELECT * FROM password_info WHERE account LIKE '%' || :query || '%'")
     suspend fun searchPasswords(query: String): List<PasswordInfo>
+
+    @Query("SELECT * FROM password_info WHERE id = :passwordId")
+    fun getPasswordByIdFlow(passwordId: Int): Flow<PasswordInfo?>
+
+    @Query("SELECT * FROM password_info WHERE id = :id")
+    fun getById(id: Int): Flow<PasswordInfo?>
 }
