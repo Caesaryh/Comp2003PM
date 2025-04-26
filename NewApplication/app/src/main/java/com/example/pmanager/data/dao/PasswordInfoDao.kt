@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 public interface PasswordInfoDao {
     @Insert
-    suspend fun createPassword(passwordInfo: PasswordInfo)
+    suspend fun createPassword(passwordInfo: PasswordInfo):Long
 
     @Update
     suspend fun updatePassword(passwordInfo: PasswordInfo)

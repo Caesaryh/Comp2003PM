@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.cfg.pseudocode.and
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -36,21 +38,26 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
+
 }
 
-dependencies {
 
+dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.org.jetbrains.kotlinx.kotlinx.coroutines.test3)
+    testImplementation(libs.app.turbine)
+    androidTestImplementation(libs.app.turbine)
 }
+
 
 // room
 dependencies {
-    val room_version = "2.6.1"
 
     implementation(libs.androidx.room.runtime)
 
@@ -83,6 +90,15 @@ dependencies {
 
 //Material 3
 dependencies {
+    androidTestImplementation(libs.androidx.navigation.navigation.testing)
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    androidTestImplementation(libs.androidx.ui.test)
+    androidTestImplementation(libs.androidx.core.testing)
+    implementation(libs.runner)
+    implementation(libs.test.runner)
+    implementation(libs.androidx.junit)
+    implementation(libs.androidx.core)
+    implementation(libs.room.testing)
     implementation(libs.androidx.hilt.compiler)
     ksp(libs.androidx.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
@@ -99,4 +115,5 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.material3.window.size.class1)
     implementation(libs.androidx.material3.adaptive.navigation.suite)
+
 }

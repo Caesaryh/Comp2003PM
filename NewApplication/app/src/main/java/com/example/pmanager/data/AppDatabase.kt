@@ -39,7 +39,7 @@ public abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "secure_vault.db"
                 )
-                    .fallbackToDestructiveMigration()
+                    .fallbackToDestructiveMigration(false)
                     .addCallback(DatabaseCallback())
                     .build()
                     .also { Instance = it }
