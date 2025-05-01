@@ -30,6 +30,10 @@ android {
                 "proguard-rules.pro"
             )
         }
+        debug {
+            enableUnitTestCoverage = true
+            enableAndroidTestCoverage = true
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -90,6 +94,14 @@ dependencies {
 
 //Material 3
 dependencies {
+    testImplementation(libs.androidx.ui.test.manifest)
+    testImplementation(libs.androidx.ui.test.android)
+    testImplementation(libs.androidx.navigation.navigation.testing)
+    testImplementation(libs.androidx.ui.test.junit4)
+    testImplementation(libs.androidx.ui.test)
+    testImplementation(libs.androidx.core.testing)
+    androidTestImplementation(libs.androidx.ui.test.manifest)
+    androidTestImplementation(libs.androidx.ui.test.android)
     androidTestImplementation(libs.androidx.navigation.navigation.testing)
     androidTestImplementation(libs.androidx.ui.test.junit4)
     androidTestImplementation(libs.androidx.ui.test)
@@ -115,5 +127,6 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.material3.window.size.class1)
     implementation(libs.androidx.material3.adaptive.navigation.suite)
+
 
 }
