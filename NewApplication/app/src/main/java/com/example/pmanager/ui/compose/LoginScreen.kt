@@ -10,16 +10,26 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.pmanager.ui.view.AuthViewModel
 
+/**
+ * Authentication screen for user login.
+ *
+ * @param navController Navigation controller for handling screen transitions
+ * @param viewModel ViewModel that handles authentication logic and state management
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen(
     navController: NavController,
     viewModel: AuthViewModel
 ) {
+    // State management for user inputs
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+
+    // Collect authentication state from ViewModel
     val uiState by viewModel.uiState.collectAsState()
 
+    // Main layout container
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -27,6 +37,7 @@ fun LoginScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        // Header section
         Text(
             text = "Welcome Back",
             style = MaterialTheme.typography.headlineMedium,
@@ -35,6 +46,7 @@ fun LoginScreen(
 
         Spacer(modifier = Modifier.height(32.dp))
 
+        // Username input field
         OutlinedTextField(
             value = username,
             onValueChange = { username = it },
@@ -45,6 +57,7 @@ fun LoginScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        // Password input field with masking
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
@@ -56,6 +69,7 @@ fun LoginScreen(
 
         Spacer(modifier = Modifier.height(24.dp))
 
+        // Login button with validation
         Button(
             onClick = { viewModel.login(username, password) },
             modifier = Modifier.fillMaxWidth(),
@@ -64,6 +78,7 @@ fun LoginScreen(
             Text("Sign In")
         }
 
+        // Registration navigation
         TextButton(
             onClick = { navController.navigate("register") },
             modifier = Modifier.padding(top = 16.dp)
@@ -71,7 +86,9 @@ fun LoginScreen(
             Text("Don't have an account? Register here")
         }
 
+        // State management UI
         when (val state = uiState) {
+            // Error state handling
             is AuthViewModel.AuthState.Error -> {
                 Text(
                     text = state.message,
@@ -79,6 +96,7 @@ fun LoginScreen(
                     modifier = Modifier.padding(top = 16.dp)
                 )
             }
+            // Success state handling
             is AuthViewModel.AuthState.Success -> {
                 LaunchedEffect(Unit) {
                     navController.navigate("main") {
@@ -86,6 +104,7 @@ fun LoginScreen(
                     }
                 }
             }
+            // Loading state indicator
             AuthViewModel.AuthState.Loading -> {
                 CircularProgressIndicator(modifier = Modifier.padding(top = 16.dp))
             }

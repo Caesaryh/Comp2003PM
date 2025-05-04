@@ -33,6 +33,13 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import com.example.pmanager.data.models.PasswordInfo
 
+/**
+ * Screen displaying detailed information about a password entry.
+ *
+ * @param passwordInfo Password data object to display
+ * @param onEditClick Callback when edit action is requested
+ * @param modifier Layout modifier for the root component
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailScreen(
@@ -57,6 +64,12 @@ fun DetailScreen(
     }
 }
 
+/**
+ * Main content layout for password detail view.
+ *
+ * @param passwordInfo Password data object to display
+ * @param modifier Layout modifier for the content area
+ */
 @Composable
 private fun PasswordDetailContent(
     passwordInfo: PasswordInfo,
@@ -89,6 +102,12 @@ private fun PasswordDetailContent(
     }
 }
 
+/**
+ * Header section displaying account information.
+ *
+ * @param account Account name to display
+ * @param modifier Layout modifier for the section
+ */
 @Composable
 private fun HeaderSection(
     account: String?,
@@ -109,6 +128,14 @@ private fun HeaderSection(
     }
 }
 
+
+/**
+ * Security section containing password visibility controls.
+ *
+ * @param password Password value to display
+ * @param showPassword Current visibility state
+ * @param onToggleVisibility Callback for toggle button click
+ */
 @Composable
 private fun SecuritySection(
     password: String?,
@@ -154,6 +181,12 @@ private fun SecuritySection(
     }
 }
 
+
+/**
+ * Notes section displaying additional comments.
+ *
+ * @param notes Comment text to display
+ */
 @Composable
 private fun NotesSection(notes: String?) {
     Card(

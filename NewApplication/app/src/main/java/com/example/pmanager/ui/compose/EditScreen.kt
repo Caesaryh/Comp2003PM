@@ -25,6 +25,13 @@ import androidx.compose.ui.unit.dp
 import com.example.pmanager.data.models.PasswordInfo
 
 
+/**
+ * Screen for editing existing password entries.
+ *
+ * @param passwordInfo Password entry to edit
+ * @param onSave Callback when edited entry is submitted
+ * @param onCancel Callback when editing is cancelled
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EditScreen(
@@ -32,6 +39,7 @@ fun EditScreen(
     onSave: (PasswordInfo) -> Unit,
     onCancel: () -> Unit
 ) {
+    // Form state initialization with existing values
     var editedAccount by remember { mutableStateOf(passwordInfo.account ?: "") }
     var editedPassword by remember { mutableStateOf(passwordInfo.password ?: "") }
     var editedNotes by remember { mutableStateOf(passwordInfo.commits ?: "") }
@@ -67,6 +75,17 @@ fun EditScreen(
     }
 }
 
+/**
+ * Form component for password entry editing.
+ *
+ * @param editedAccount Current edited account name
+ * @param onAccountChange Account name change callback
+ * @param editedPassword Current edited password
+ * @param onPasswordChange Password change callback
+ * @param editedNotes Current edited notes
+ * @param onNotesChange Notes change callback
+ * @param modifier Layout modifier
+ */
 @Composable
 private fun EditForm(
     editedAccount: String,
@@ -108,6 +127,12 @@ private fun EditForm(
     }
 }
 
+/**
+ * Bottom action bar with editing controls.
+ *
+ * @param onSave Callback when save button is clicked
+ * @param onCancel Callback when cancel button is clicked
+ */
 @Composable
 private fun EditBottomBar(
     onSave: () -> Unit,

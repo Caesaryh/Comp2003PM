@@ -14,6 +14,13 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.pmanager.ui.view.AuthViewModel
 import androidx.compose.runtime.getValue
 
+/**
+ * Main profile screen displaying user information and logout functionality.
+ *
+ * @param authViewModel ViewModel handling user authentication data
+ * @param onLogout Callback invoked when user triggers logout
+ * @param onBack Callback for navigation back action
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileScreen(
@@ -21,9 +28,13 @@ fun ProfileScreen(
     onLogout: () -> Unit,
     onBack: () -> Unit,
 ) {
+    // Scroll behavior for collapsing app bar
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
+
+    // Collect current user data from ViewModel
     val currentUsername by authViewModel.currentUser.collectAsState()
 
+    // Main screen scaffold layout
     Scaffold(
         topBar = {
             ProfileTopBar(
@@ -43,12 +54,19 @@ fun ProfileScreen(
     }
 }
 
+/**
+ * Custom top app bar for profile screen with scroll behavior.
+ *
+ * @param scrollBehavior Collapse/expand behavior for app bar
+ * @param onBack Callback for back navigation
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ProfileTopBar(
     scrollBehavior: TopAppBarScrollBehavior,
     onBack: () -> Unit
 ) {
+    // Large top app bar implementation
     LargeTopAppBar(
         title = {
             Text(
@@ -56,6 +74,15 @@ private fun ProfileTopBar(
                 style = MaterialTheme.typography.headlineSmall,
                 color = MaterialTheme.colorScheme.onSurface
             )
+        },
+        navigationIcon = {
+            // Back button implementation
+            IconButton(onClick = onBack) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = "Back"
+                )
+            }
         },
         scrollBehavior = scrollBehavior,
         colors = TopAppBarDefaults.topAppBarColors(
@@ -65,6 +92,13 @@ private fun ProfileTopBar(
     )
 }
 
+/**
+ * Profile screen content layout displaying user information and logout button.
+ *
+ * @param modifier Modifier for layout configuration
+ * @param username Display name of current user
+ * @param onLogout Callback for logout action
+ */
 @Composable
 private fun ProfileContent(
     modifier: Modifier = Modifier,
@@ -75,7 +109,7 @@ private fun ProfileContent(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
+        // User avatar circle
         Surface(
             shape = CircleShape,
             color = MaterialTheme.colorScheme.primaryContainer,
@@ -85,12 +119,13 @@ private fun ProfileContent(
         ) {
             Icon(
                 imageVector = Icons.Default.Person,
-                contentDescription = "Icon",
+                contentDescription = "User avatar",
                 tint = MaterialTheme.colorScheme.onPrimaryContainer,
                 modifier = Modifier.padding(16.dp)
             )
         }
 
+        // Username display
         Text(
             text = username,
             style = MaterialTheme.typography.headlineMedium,
@@ -98,8 +133,10 @@ private fun ProfileContent(
             modifier = Modifier.padding(vertical = 16.dp)
         )
 
+        // Flexible spacer to push content up
         Spacer(modifier = Modifier.weight(1f))
 
+        // Logout button with warning colors
         FilledTonalButton(
             onClick = onLogout,
             modifier = Modifier

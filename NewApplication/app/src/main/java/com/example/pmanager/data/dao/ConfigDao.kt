@@ -8,7 +8,7 @@ import androidx.room.Transaction
 import com.example.pmanager.data.models.Config
 
 @Dao
-public interface ConfigDao {
+interface ConfigDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun persist(config: Config)
 

@@ -20,6 +20,14 @@ import com.example.pmanager.R
 import com.example.pmanager.data.models.PasswordInfo
 import com.example.pmanager.ui.view.BrowseViewModel
 
+
+/**
+ * Main screen displaying password entries with search and creation capabilities.
+ *
+ * @param viewModel Provides access to password data and search functionality
+ * @param onItemClick Callback for password item selection
+ * @param navController Handles navigation between app screens
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BrowseScreen(
@@ -65,6 +73,13 @@ fun BrowseScreen(
     }
 }
 
+
+/**
+ * Displays a scrollable list of password entries.
+ *
+ * @param items List of PasswordInfo objects to display
+ * @param onItemClick Callback for item selection events
+ */
 @Composable
 private fun PasswordList(
     items: List<PasswordInfo>,
@@ -93,6 +108,10 @@ private fun PasswordList(
     }
 }
 
+
+/**
+ * Empty state UI component displayed when no passwords exist.
+ */
 @Composable
 private fun EmptyStatePrompt() {
     Column(
@@ -123,6 +142,13 @@ private fun EmptyStatePrompt() {
     }
 }
 
+
+/**
+ * Individual password list item card component.
+ *
+ * @param item PasswordInfo object to display
+ * @param onClick Callback for card selection
+ */
 @Composable
 private fun PasswordListItem(
     item: PasswordInfo,
@@ -167,6 +193,12 @@ private fun PasswordListItem(
     }
 }
 
+/**
+ * Interactive password preview component with show/hide functionality.
+ *
+ * @param password The actual password value to preview
+ * @param modifier Layout modifier for styling
+ */
 @Composable
 private fun PasswordPreview(
     password: String?,
@@ -195,6 +227,13 @@ private fun PasswordPreview(
     }
 }
 
+/**
+ * Search bar component with expandable advanced options.
+ *
+ * @param query Current search query text
+ * @param onQueryChange Callback for query text changes
+ * @param modifier Layout modifier for styling
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun SearchBar(
@@ -219,6 +258,9 @@ private fun SearchBar(
     }
 }
 
+/**
+ * Container for advanced search filters (currently WIP).
+ */
 @Composable
 private fun AdvancedSearchOptions() {
 

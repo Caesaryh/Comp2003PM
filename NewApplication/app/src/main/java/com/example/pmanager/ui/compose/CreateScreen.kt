@@ -24,6 +24,13 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import com.example.pmanager.data.models.PasswordInfo
 
+
+/**
+ * Screen for creating new password entries.
+ *
+ * @param onCreate Callback when new password entry is submitted
+ * @param onCancel Callback when creation is cancelled
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CreateScreen(
@@ -66,6 +73,17 @@ fun CreateScreen(
     }
 }
 
+/**
+ * Form component for password entry creation.
+ *
+ * @param newAccount Current account name input
+ * @param onAccountChange Account name change callback
+ * @param newPassword Current password input
+ * @param onPasswordChange Password change callback
+ * @param newNotes Current notes input
+ * @param onNotesChange Notes change callback
+ * @param modifier Layout modifier
+ */
 @Composable
 private fun CreateForm(
     newAccount: String,
@@ -109,6 +127,12 @@ private fun CreateForm(
     }
 }
 
+/**
+ * Bottom action bar with creation controls.
+ *
+ * @param onCreate Callback when create button is clicked
+ * @param onCancel Callback when cancel button is clicked
+ */
 @Composable
 private fun CreateBottomBar(
     onCreate: () -> Unit,

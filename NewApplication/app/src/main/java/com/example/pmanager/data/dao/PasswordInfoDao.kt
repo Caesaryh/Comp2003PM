@@ -9,7 +9,7 @@ import com.example.pmanager.data.models.PasswordInfo
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-public interface PasswordInfoDao {
+interface PasswordInfoDao {
     @Insert
     suspend fun createPassword(passwordInfo: PasswordInfo):Long
 
