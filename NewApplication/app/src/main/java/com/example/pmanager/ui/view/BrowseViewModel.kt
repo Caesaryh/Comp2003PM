@@ -120,7 +120,19 @@ class BrowseViewModel(
                 dao.updatePassword(passwordInfo)
             }
         }
+
+    fun deletePasswordById(passwordId: Int) {
+        viewModelScope.launch {
+            try {
+                dao.deleteById(passwordId)
+            } catch (e: Exception) {
+                // 处理异常
+                e.printStackTrace()
+            }
+        }
     }
+    }
+
 
     /**
      * Factory for creating [BrowseViewModel] instances with dependency injection.

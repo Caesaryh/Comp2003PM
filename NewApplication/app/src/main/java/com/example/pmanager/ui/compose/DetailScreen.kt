@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
@@ -45,16 +46,33 @@ import com.example.pmanager.data.models.PasswordInfo
 fun DetailScreen(
     passwordInfo: PasswordInfo,
     onEditClick: () -> Unit,
+    onDeleteClick:  ()-> Unit,
     modifier: Modifier = Modifier
 ) {
     Scaffold(
         modifier = modifier.fillMaxSize(),
         floatingActionButton = {
-            ExtendedFloatingActionButton(
-                onClick = onEditClick,
-                icon = { Icon(Icons.Default.Edit, "Edit") },
-                text = { Text("Edit") }
-            )
+            Column(
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                ExtendedFloatingActionButton(
+                    onClick = onDeleteClick,
+                    icon = {
+                        Icon(
+                            imageVector = Icons.Default.Delete,
+                            contentDescription = "Delete"
+                        )
+                    },
+                    text = { Text("Delete") },
+                    containerColor = MaterialTheme.colorScheme.errorContainer,
+                    contentColor = MaterialTheme.colorScheme.onErrorContainer
+                )
+                ExtendedFloatingActionButton(
+                    onClick = onEditClick,
+                    icon = { Icon(Icons.Default.Edit, "Edit") },
+                    text = { Text("Edit") }
+                )
+            }
         }
     ) { innerPadding ->
         PasswordDetailContent(

@@ -43,4 +43,7 @@ interface PasswordInfoDao {
         AND (account LIKE '%' || :query || '%' OR commits LIKE '%' || :query || '%')
     """)
     suspend fun searchUserPasswords(userId: Int, query: String): List<PasswordInfo>
+
+    @Query("DELETE FROM password_info WHERE id = :passwordId")
+    suspend fun deleteById(passwordId: Int)
 }
