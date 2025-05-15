@@ -29,7 +29,7 @@ import com.example.pmanager.data.models.User
         PasswordInfo::class,
         User::class
     ],
-    version = 2,  // Increment when making schema changes
+    version = 3,  // Increment when making schema changes
     exportSchema = false  // Disable schema export for production builds
 )
 abstract class AppDatabase : RoomDatabase() {

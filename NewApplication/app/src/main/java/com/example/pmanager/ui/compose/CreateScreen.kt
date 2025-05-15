@@ -53,7 +53,8 @@ fun CreateScreen(
                             account = newAccount,
                             password = newPassword,
                             commits = newNotes,
-                            id = 0
+                            id = 0,
+                            userId = 0
                         )
                     )
                 },

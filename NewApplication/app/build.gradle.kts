@@ -128,5 +128,10 @@ dependencies {
     implementation(libs.androidx.material3.window.size.class1)
     implementation(libs.androidx.material3.adaptive.navigation.suite)
 
+    implementation(libs.android.database.sqlcipher)
+    implementation(libs.androidx.sqlite)
+
+    implementation(libs.androidx.security.crypto)
+    implementation(libs.androidx.biometric.ktx)
 
 }

@@ -1,6 +1,8 @@
 package com.example.pmanager.data.models
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 /**
@@ -15,11 +17,21 @@ import androidx.room.PrimaryKey
  * @property commits Additional notes or metadata about the entry
  * @property createdAt Creation timestamp (auto-populated)
  */
-@Entity(tableName = "password_info")
+@Entity(
+    tableName = "password_info",
+    foreignKeys = [ForeignKey(
+        entity = User::class,
+        parentColumns = ["id"],
+        childColumns = ["userId"],
+        onDelete = ForeignKey.CASCADE
+    )]
+)
 data class PasswordInfo(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val account: String?,
     val password: String?,
     val commits: String?,
-    val createdAt: Long = System.currentTimeMillis()
+    val createdAt: Long = System.currentTimeMillis(),
+    @ColumnInfo(name = "userId", index = true)
+    val userId: Int
 )

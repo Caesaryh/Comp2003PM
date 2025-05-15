@@ -80,10 +80,14 @@ fun MainNavigation(authViewModel: AuthViewModel) {
         }
 
         composable("main") {
+            val currentUser by authViewModel.currentUser.collectAsState()
             MainLayout(navController) { innerPadding ->
                 val dao = AppDatabase.getDatabase(LocalContext.current).passwordInfoDao()
                 val browseViewModel: BrowseViewModel = viewModel(
-                    factory = BrowseViewModelFactory(dao)
+                    factory = BrowseViewModelFactory(
+                        dao = dao,
+                        userId = currentUser!!.id
+                    )
                 )
                 BrowseScreen(
                     viewModel = browseViewModel,
@@ -120,13 +124,23 @@ fun MainNavigation(authViewModel: AuthViewModel) {
 
         composable("create") {
             val dao = AppDatabase.getDatabase(LocalContext.current).passwordInfoDao()
+            val currentUser by authViewModel.currentUser.collectAsState()
             val browseViewModel: BrowseViewModel = viewModel(
-                factory = BrowseViewModelFactory(dao)
+                factory = BrowseViewModelFactory(
+                    dao = dao,
+                    userId = currentUser!!.id
+                )
             )
 
             CreateScreen(
                 onCreate = { newPassword ->
-                    browseViewModel.addPassword(newPassword)
+                    browseViewModel.addPassword(
+                        account = newPassword.account,
+                        password = newPassword.password,
+                        commits = newPassword.commits,
+                        currentUserId = currentUser!!.id
+
+                    )
                     navController.popBackStack()
                 },
                 onCancel = { navController.popBackStack() }
@@ -136,8 +150,12 @@ fun MainNavigation(authViewModel: AuthViewModel) {
         composable("details/{id}") { backStackEntry ->
             val passwordId = backStackEntry.arguments?.getString("id")?.toIntOrNull()
             val dao = AppDatabase.getDatabase(LocalContext.current).passwordInfoDao()
+            val currentUser by authViewModel.currentUser.collectAsState()
             val browseViewModel: BrowseViewModel = viewModel(
-                factory = BrowseViewModelFactory(dao)
+                factory = BrowseViewModelFactory(
+                    dao = dao,
+                    userId = currentUser!!.id
+                )
             )
 
             val password by browseViewModel.getPasswordById(passwordId ?: 0).collectAsState(initial = null)
@@ -157,8 +175,12 @@ fun MainNavigation(authViewModel: AuthViewModel) {
         composable("edit/{id}") { backStackEntry ->
             val passwordId = backStackEntry.arguments?.getString("id")?.toIntOrNull()
             val dao = AppDatabase.getDatabase(LocalContext.current).passwordInfoDao()
+            val currentUser by authViewModel.currentUser.collectAsState()
             val browseViewModel: BrowseViewModel = viewModel(
-                factory = BrowseViewModelFactory(dao)
+                factory = BrowseViewModelFactory(
+                    dao = dao,
+                    userId = currentUser!!.id
+                )
             )
 
             val originalItem by browseViewModel.getPasswordById(passwordId ?: 0)

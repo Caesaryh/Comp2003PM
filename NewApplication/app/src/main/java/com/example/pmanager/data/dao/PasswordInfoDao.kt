@@ -33,4 +33,14 @@ interface PasswordInfoDao {
 
     @Query("SELECT * FROM password_info WHERE id = :id")
     fun getById(id: Int): Flow<PasswordInfo?>
+
+    @Query("SELECT * FROM password_info WHERE userId = :userId ORDER BY id DESC")
+    fun getPasswordsByUserId(userId: Int): Flow<List<PasswordInfo>>
+
+    @Query("""
+        SELECT * FROM password_info 
+        WHERE userId = :userId 
+        AND (account LIKE '%' || :query || '%' OR commits LIKE '%' || :query || '%')
+    """)
+    suspend fun searchUserPasswords(userId: Int, query: String): List<PasswordInfo>
 }

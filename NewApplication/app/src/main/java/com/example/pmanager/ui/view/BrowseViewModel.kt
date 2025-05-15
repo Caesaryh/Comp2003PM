@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.pmanager.data.dao.PasswordInfoDao
 import com.example.pmanager.data.models.PasswordInfo
+import com.example.pmanager.data.models.User
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -22,10 +23,12 @@ import kotlinx.coroutines.launch
  * @property dao Data access object for password entries
  */
 class BrowseViewModel(
-    private val dao: PasswordInfoDao
+    private val dao: PasswordInfoDao,
+    private val currentUserId: Int
 ) : ViewModel() {
     // region Search State Management
     private val _searchQuery = MutableStateFlow("")
+
     /**
      * Observable search query input with debounce support.
      * Updates trigger automatic search results refresh.
@@ -33,6 +36,7 @@ class BrowseViewModel(
     val searchQuery = _searchQuery.asStateFlow()
 
     private val _searchResults = MutableStateFlow<List<PasswordInfo>>(emptyList())
+
     /**
      * Current filtered password entries matching search criteria.
      * Automatically updated based on query changes.
@@ -40,6 +44,7 @@ class BrowseViewModel(
     val searchResults = _searchResults.asStateFlow()
 
     private val _allItems = MutableStateFlow<List<PasswordInfo>>(emptyList())
+
     /**
      * Complete collection of password entries for offline search.
      * Maintained as a cache to optimize search performance.
@@ -50,9 +55,8 @@ class BrowseViewModel(
     init {
         // Initialize data synchronization
         viewModelScope.launch {
-            dao.getAllPasswords().collect { passwords ->
+            dao.getPasswordsByUserId(currentUserId).collect { passwords ->
                 _allItems.value = passwords
-                // Refresh search results when base data changes
                 if (_searchQuery.value.isEmpty()) {
                     _searchResults.value = passwords
                 }
@@ -65,7 +69,7 @@ class BrowseViewModel(
                 .debounce(300)  // Wait 300ms after last input
                 .collect { query ->
                     _searchResults.value = when {
-                        query.isNotEmpty() -> dao.searchPasswords(query)
+                        query.isNotEmpty() -> dao.searchUserPasswords(currentUserId, query)
                         else -> _allItems.value  // Fallback to full list
                     }
                 }
@@ -84,49 +88,57 @@ class BrowseViewModel(
     /**
      * Inserts new password entry into database.
      *
-     * @param passwordInfo Complete password entry to create
+     *
      */
-    fun addPassword(passwordInfo: PasswordInfo) {
+    fun addPassword(account: String?, password: String?, commits: String?,currentUserId: Int) {
         viewModelScope.launch {
-            dao.createPassword(passwordInfo)
+            val newPassword = PasswordInfo(
+                account = account,
+                password = password,
+                commits = commits,
+                userId = currentUserId
+            )
+            dao.createPassword(newPassword)
+        }
+    }
+
+        /**
+         * Retrieves single password entry by ID.
+         *
+         * @param id Database ID of the password entry
+         * @return Flow emitting PasswordInfo or null if not found
+         */
+        fun getPasswordById(id: Int): Flow<PasswordInfo?> = dao.getById(id)
+
+        /**
+         * Updates existing password entry in database.
+         *
+         * @param passwordInfo Modified password entry with existing ID
+         */
+        fun updatePassword(passwordInfo: PasswordInfo) {
+            viewModelScope.launch {
+                dao.updatePassword(passwordInfo)
+            }
         }
     }
 
     /**
-     * Retrieves single password entry by ID.
+     * Factory for creating [BrowseViewModel] instances with dependency injection.
      *
-     * @param id Database ID of the password entry
-     * @return Flow emitting PasswordInfo or null if not found
+     * @property dao PasswordInfoDao instance to provide to ViewModel
      */
-    fun getPasswordById(id: Int): Flow<PasswordInfo?> = dao.getById(id)
-
-    /**
-     * Updates existing password entry in database.
-     *
-     * @param passwordInfo Modified password entry with existing ID
-     */
-    fun updatePassword(passwordInfo: PasswordInfo) {
-        viewModelScope.launch {
-            dao.updatePassword(passwordInfo)
+    class BrowseViewModelFactory(
+        private val dao: PasswordInfoDao,
+        private val userId: Int
+    ) : ViewModelProvider.Factory {
+        @Suppress("UNCHECKED_CAST")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return when {
+                modelClass.isAssignableFrom(BrowseViewModel::class.java) ->
+                    BrowseViewModel(dao, userId) as T  // 传递用户ID
+                else ->
+                    throw IllegalArgumentException("Unknown ViewModel class")
+            }
         }
     }
-}
 
-/**
- * Factory for creating [BrowseViewModel] instances with dependency injection.
- *
- * @property dao PasswordInfoDao instance to provide to ViewModel
- */
-class BrowseViewModelFactory(
-    private val dao: PasswordInfoDao
-) : ViewModelProvider.Factory {
-    @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return when {
-            modelClass.isAssignableFrom(BrowseViewModel::class.java) ->
-                BrowseViewModel(dao) as T
-            else ->
-                throw IllegalArgumentException("Unknown ViewModel class")
-        }
-    }
-}
